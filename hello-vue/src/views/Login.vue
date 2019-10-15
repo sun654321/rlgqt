@@ -39,7 +39,7 @@
 
        <p class="wjmm" @click="wjmm">忘记密码?</p>
 
-    <van-button icon="good-job-o"  round type="info" size="normal" @click="tz">登录</van-button>
+    <van-button icon="good-job-o"  round type="info" size="normal" @click="tz">{{title}}</van-button>
     <van-button icon="good-job-o"  round type="info" size="normal" @click="zc">注册</van-button>
     <van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 30px' }">
       使用以下方式进行登录
@@ -67,6 +67,7 @@
     data() {
       return {
         username:this.$route.query.zcda,
+        title:'未登录',
         password: '',
         datauser:''
       };
@@ -90,6 +91,8 @@
                 message:datas.data.msg
               });
             }else{
+              this_.title='已登录'
+
               //获取后端数据
               this_.datauser=datas.data.data
               //清空数据
